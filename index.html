@@ -1,42 +1,28 @@
 <html>
     <head>
         <title>FIT5147</title>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
         <style>
             path {
                 stroke: white;
                 stroke-width: 0.5px;
-                fill: black;
+                fill: darkcyan;
             }
 
-            .source-port {
-                fill: white;
-                stroke: darkgreen;
-                stroke-width: 2px;
+            .node {
+                fill:brown
             }
-            .land {
-                fill: #a8ddb5;
+
+            .flowpop {
+                background-color: bisque;
+                width: 100px;
+                height: 100px;
             }
+            
         </style>
     </head>
     <body>
-        <script>
-            var svg = d3.select("body").append("svg").attr("width", "100%").attr("height", "100%")
-            var projection = d3.geoMercator();
-            console.log(projection);
-            var path = d3.geoPath().projection(projection);
-            var g = svg.append("g");
-            console.log("start")
-            d3.json("./countries.geo.json", function (error, country) {
-                console.log("111")
-                console.log(country.features)
-                if(error) {
-                    console.log(error);
-                }
-                console.log(country.features);
-                g.selectAll("path").data(country.features).enter().append("path").attr("class", "land").attr("d", path)
-            });
-        </script>
+        <script src="script.js"></script>
     </body>
     
 </html>
