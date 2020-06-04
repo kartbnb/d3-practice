@@ -22,11 +22,13 @@
     <body>
         <script>
             var svg = d3.select("body").append("svg").attr("width", "100%").attr("height", "100%")
-            var projection = d3.geoMercator()
-            console.log(projection)
-            var path = d3.geoPath().projection(projection)
-            var g = svg.append("g")
+            var projection = d3.geoMercator();
+            console.log(projection);
+            var path = d3.geoPath().projection(projection);
+            var g = svg.append("g");
+            console.log("start")
             d3.json("./countries.geo.json", function (error, country) {
+                console.log("111")
                 console.log(country.features)
                 if(error) {
                     console.log(error);
