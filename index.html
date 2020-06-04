@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>FIT5147</title>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <style>
+            path {
+                stroke: white;
+                stroke-width: 0.5px;
+                fill: black;
+            }
+
+            .source-port {
+                fill: white;
+                stroke: darkgreen;
+                stroke-width: 2px;
+            }
+            .land {
+                fill: #a8ddb5;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var svg = d3.select("body").append("svg").attr("width", "100%").attr("height", "100%")
+            var projection = d3.geoMercator()
+            console.log(projection)
+            var path = d3.geoPath().projection(projection)
+            var g = svg.append("g")
+            d3.json("./countries.geo.json", function (error, country) {
+                console.log(country.features)
+                if(error) {
+                    console.log(error);
+                }
+                console.log(country.features);
+                g.selectAll("path").data(country.features).enter().append("path").attr("class", "land").attr("d", path)
+            });
+        </script>
+    </body>
+    
+</html>
