@@ -62,7 +62,7 @@ d3.json("./data.json", function (error, data) {
         return r / 100
     }).on("mouseover", function(node) {
         // hide all circle
-        d3.selectAll("circle").attr("opacity", 0.1)
+        d3.selectAll("circle").attr("opacity", 0.5)
         // show this circle
         d3.select(this).attr("opacity", 1)
         // hide or show line based on id
@@ -70,7 +70,7 @@ d3.json("./data.json", function (error, data) {
             if (line.node01.valueOf() == node.id.valueOf() || line.node02.valueOf() == node.id.valueOf()) {
                 return 1
             } else {
-                return 0.1
+                return 0.5
             }
         })
         show(("id:"+ node.id), "amount:" + calculateR(node, links))
